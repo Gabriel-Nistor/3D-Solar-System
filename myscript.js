@@ -261,11 +261,7 @@ function domChanges(){
 }
 
 
-// Raycasting events on clicking objects: 
-function onDocumentMouseClick(event) {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
+function rayCasterObj(){
  
     let clickSun = raycaster.intersectObjects([sun]); 
     let clickMercury = raycaster.intersectObjects([mercury]); 
@@ -338,7 +334,28 @@ function onDocumentMouseClick(event) {
         planetInfo.innerText = "Pluto was discovered in 1930 and it was declared to be the ninth planet from the Sun. Beginning in the 1990s, its status as a planet was questioned and led the International Astronomical Union in 2006 to formally define the term `planet`- excluding Pluto and reclassifying it as a dwarf planet.";
         domChanges();
     }    
+}
+
+// Raycasting events on clicking objects: 
+function onDocumentMouseDown(event) {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+
+    rayCasterObj();
 };
 
-window.addEventListener('click', onDocumentMouseClick, false);
+window.addEventListener('click', onDocumentMouseDown, false);
+
+
+function onMobileTouchStart(event) {
+    mouse.x = ( event.targetTouches[0].pageX / window.innerWidth) * 2 - 1;
+    mouse.y = -( event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+ 
+    rayCasterObj()
+};
+
+
+document.addEventListener('touchstart', onMobileTouchStart, false);
 
