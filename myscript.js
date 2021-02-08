@@ -241,6 +241,7 @@ init();
 mainLoop();
 
 
+// Simple user interaction: 
 let informationPanel = document.getElementById("informationPanel");
 let planetName = document.getElementById("planetName");
 let planetInfo = document.getElementById("planetInfo");
@@ -260,8 +261,8 @@ function domChanges(){
     infoText.style.display = "none";
 }
 
-
-function rayCasterObj(){
+// Added each object to a reycaster so it can be used to add click and touch events:
+function createRaycasterObjects(){
  
     let clickSun = raycaster.intersectObjects([sun]); 
     let clickMercury = raycaster.intersectObjects([mercury]); 
@@ -342,18 +343,18 @@ function onDocumentMouseDown(event) {
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     raycaster.setFromCamera(mouse, camera);
 
-    rayCasterObj();
+    createRaycasterObjects();
 };
 
 window.addEventListener('click', onDocumentMouseDown, false);
 
-
+// Raycasting events on touching objects: 
 function onMobileTouchStart(event) {
     mouse.x = ( event.targetTouches[0].pageX / window.innerWidth) * 2 - 1;
     mouse.y = -( event.targetTouches[0].pageY / window.innerHeight) * 2 + 1;
     raycaster.setFromCamera(mouse, camera);
  
-    rayCasterObj()
+    createRaycasterObjects();
 };
 
 
