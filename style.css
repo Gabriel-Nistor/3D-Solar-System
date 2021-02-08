@@ -17,6 +17,7 @@ canvas {
     display: block;
     position: absolute;
     font-size: 1.5rem;
+    margin: 10px;
 }
 
 .information-panel {
@@ -66,3 +67,9 @@ canvas {
     background: none;
 }
 
+@media(max-width: 650px) {
+    .information-panel {
+        width: 350px;
+        height: 200px;
+    }
+}
