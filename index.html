@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+    <head>
+        <title>Solar System 3D Project</title>
+        <link rel="shortcut icon" type="image/x-icon" href="pictures/planet_icon.ico">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="solar system, planet, sun, 3D">
+        <meta name="description"
+            content="A simple 3D WebApp where you can explore and learn about the planets in our solar system">
+        <meta name="author" content="Gabriel Nistor">
+        <!-- Fonts and sytle -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <h1 id="infoText" class="info-text">
+            Navigate around the screen and click on each planet to receive information about them
+        </h1>
+
+        <div class="information-panel" id="informationPanel">
+            <button id="closeButton" class="close-button">X</button>
+            <h2 id="planetName"></h2>
+            <p id="planetInfo"></p>
+        </div>
+
+
+        <!-- Scripts / three.js library-->
+        <script src="three.js"></script>
+        <script src="OrbitControls.js"></script>
+        <script src="myscript.js"></script>
+    </body>
+
+</html>
